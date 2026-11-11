@@ -378,8 +378,8 @@ dialog td{padding:.2em .6em .2em 0}
 .otd{flex:1.1;min-width:0;display:flex;flex-direction:column;min-height:0;overflow:auto}
 .otm{width:100%;border-collapse:separate;border-spacing:.14em;font-size:.78em;table-layout:fixed}
 .otm th{font-weight:600;text-align:center;vertical-align:bottom;padding:0}
-.otm th.cr{text-align:left;width:17em;color:var(--gd);font-size:.9em;text-transform:uppercase;letter-spacing:.04em}
-.otm th.cn,.otm td.cn{width:5em}
+  .otm th.cr{text-align:left;color:var(--gd);font-size:.9em;text-transform:uppercase;letter-spacing:.04em}
+.otm th.cn,.otm td.cn{}
 .otm th button{width:100%;background:none;border:0;border-bottom:2px solid var(--ink);padding:.25em .1em;line-height:1.1}
 .otm th button:hover{background:var(--paper)}
 .otm th button.on{background:var(--rt);box-shadow:inset 0 -.26em 0 var(--red)}
@@ -390,12 +390,12 @@ dialog td{padding:.2em .6em .2em 0}
 .otm td.c{background:#E3F1E8;color:#1D6B40}
 .otm td.n{background:#EEEFF0;color:#52565A}
 .otm td.sel{outline:.14em solid var(--ink);outline-offset:-.14em}
-.otm td.cr{text-align:left;font-weight:500;background:none;white-space:nowrap;padding-left:.1em;line-height:1.1}
+.otm td.cr{text-align:left;font-weight:500;background:none;white-space:nowrap;padding:.2em .3em .2em .1em;line-height:1.1}
 .otm td.cn{background:none;color:var(--gd)}
 .otm tfoot td{background:none;border-top:2px solid var(--ink);border-radius:0}
 .otm tfoot td.cr{font-weight:600}
-.otm tfoot small{font-weight:400;color:var(--gd)}
-.otb .ots{margin:.3em 0 0;font-size:.76em;line-height:1.25}
+.otm tfoot small{display:block;font-weight:400;color:var(--gd);font-size:.85em}
+.otb .ots{margin:.15em 0 0;font-size:.72em;line-height:1.2}
 .otk{display:grid;grid-template-columns:5.2em minmax(0,1fr);gap:.4em;padding:.15em .1em;border-bottom:1px solid var(--line);font-size:.8em;line-height:1.25}
 .otk b{font-weight:600;color:var(--gd)}
 .otk.liq{background:var(--rt);box-shadow:inset .26em 0 0 var(--red);padding-left:.6em}
@@ -1852,7 +1852,7 @@ function dOT(){
   document.getElementById('otl').innerHTML = ['o','p','c','n'].map(function(s){
     return '<span><i style="background:'+OTCOL[s]+';border:1px solid rgba(43,46,49,.28)"></i>'+OTTIP[s]+'</span>';
   }).join('');
-  var h = '<table class="otm" aria-label="Matriz de resultados declarados por criterio y programa"><thead><tr><th scope="col" class="cr">Criterio</th>' +
+  var h = '<table class="otm" aria-label="Matriz de resultados declarados por criterio y programa"><colgroup><col style="width:12.5em"><col><col><col><col><col><col style="width:5em"></colgroup><thead><tr><th scope="col" class="cr">Criterio</th>' +
     OTP.map(function(p){
       return '<th scope="col"><button type="button" class="'+(p.k===sel?'on':'')+'" data-otp="'+p.k+'" aria-pressed="'+(p.k===sel)+'" title="'+p.n+'"><b>'+(p.k==='mae' ? 'Maestría C. Salud' : (p.k==='qfb' ? 'QFB' : p.n))+'</b><small>'+p.s+' · '+fF(p.fo).replace('-2026','')+'</small></button></th>';
     }).join('') + '<th scope="col" class="cn">Con pendiente</th></tr></thead><tbody>';
@@ -1865,7 +1865,7 @@ function dOT(){
   });
   h += '</tbody><tfoot><tr><td class="cr">Con observaciones</td>' + OTP.map(function(p){
     var o = otCount(p,'o'), q = otCount(p,'p');
-    return '<td class="'+(p.k===sel?'sel':'')+'">'+o+' de 10'+(q ? '<small> + '+q+' parc.</small>' : '')+'</td>';
+    return '<td class="'+(p.k===sel?'sel':'')+'">'+o+' de 10'+(q ? '<small>+ '+q+' parcial'+(q>1?'es':'')+'</small>' : '')+'</td>';
   }).join('') + '<td class="cn"></td></tr></tfoot></table>';
   h += '<p class="nota ots">† Matiz del oficio: pase el cursor sobre la celda. El dictamen de la Maestría corresponde a la modalidad mixta; la escolarizada está en liquidación.</p>';
   document.getElementById('otb').innerHTML = h;

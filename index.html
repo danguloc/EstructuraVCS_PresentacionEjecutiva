@@ -175,7 +175,7 @@ button.tk:hover{background:var(--paper)}
 #d2 .tk .tv{font-size:1.1em;line-height:1}
 #d2 .tk .ts{line-height:1.2}
 #d2 .tks{gap:.4em}
-#d2 .tk .tb{margin:.05em 0}
+#d2 .tk .tb{margin:.05em 0;background:#fff}
 .tk{position:relative}
 .tk.go::after{content:'›';position:absolute;right:.6em;bottom:.25em;font-size:1.3em;line-height:1;color:var(--red);font-weight:700}
 .tk .tb.s{height:.4em}
@@ -883,7 +883,7 @@ function s2(){
    '<div class="grp"><span>Vista</span><span class="seg" role="group" aria-label="Vista">'+
      '<button type="button" data-sort="tot" aria-pressed="true">Cantidad</button><button type="button" data-sort="nom" aria-pressed="false">Porcentaje</button></span>'+
      '<button type="button" class="tgl" data-split="1" aria-pressed="false">Desglosar nómina TC · MT</button></div></div>'+
-   '<div class="dyn" id="d2"></div><p class="nota">Planta adscrita (572). En facultades, «por TC» es estudiantes inscritos en otoño 2026 entre los TC adscritos. «Imparten»: docentes con grupo en otoño 2026 sin importar su adscripción; 591 únicos, incl. 17 TC externos y 8 administrativos.</p></div>'+
+   '<div class="dyn" id="d2"></div><p class="nota">Planta adscrita (572). En facultades, «por TC» es estudiantes inscritos en otoño 2026 entre los TC adscritos. «Imparten»: docentes con grupo en otoño 2026 sin importar su adscripción; 591 únicos, incl. 17 TC externos y 8 administrativos. En la vista Cantidad, la longitud de la barra es proporcional al número de académicos; la barra completa corresponde a Medicina (272).</p></div>'+
    '<aside class="notas" aria-label="Notas del orador"><h4>Notas del orador</h4>'+
    '<p>Nómina = tiempo completo ('+G_tc+') + medio tiempo ('+G_mt+'); HC = por horas ('+G_hc+'). La asignación del tipo de contratación proviene de la base (vinculaciones laborales vigentes, con las reglas de asignación de noviembre) y sigue pendiente de validación con Recursos Humanos.</p>'+
    '<p>La adscripción es administrativa y única, según la base al 10 de noviembre de 2026 tras las migraciones 041 y 042. La fila «Vicerrectoría y áreas de apoyo» agrupa la Vicerrectoría (3), la Secretaría Académica (4), la Escuela de Bioética (7), Posgrados (3), Vinculación Clínica (3) y dos coordinaciones (2); no es una facultad y no admite foco; la razón de estudiantes por TC se calcula solo para las siete facultades, con los inscritos de otoño 2026 (lámina 12) entre los TC de la planta adscrita; las escuelas y las áreas no la muestran; en esa fila, «imparten» se refiere solo a la Escuela de Bioética. La Dirección de Ciencias Básicas de la Salud se presenta aparte, como adscripción transversal.</p><p>La base registra 593 académicos activos. Los 21 restantes, todos de tiempo completo, están adscritos a unidades externas (15 a la Vicerrectoría de Docencia y 6 a otras direcciones generales), no cuentan como planta de la Vicerrectoría aunque algunos impartan clases en ella, y por eso la planta de la lámina 8 suma 572. La línea «Imparten» de cada tarjeta viene del archivo de grupos de otoño 2026 (2,911 filas de los decanatos de ciencias de la salud): 591 personas únicas con al menos un grupo, de las cuales 466 son HC, 100 de nómina de planta, 17 TC de unidades externas y 8 administrativos. Una persona que imparte en varias unidades cuenta en cada una, por lo que las tarjetas suman más que 591. Diez académicos activos de la base no tienen grupo en el periodo.</p></aside>'+

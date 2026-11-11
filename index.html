@@ -1686,7 +1686,7 @@ function otaVenc(){ return PR.filter(function(p){ return p.ro && p.ota && dias(p
 function otaProx(){ return PR.filter(function(p){ return p.ro && en6(p.ota); }).sort(function(a,b){ return a.ota<b.ota?-1:1; }); }
 /* ---- 12 · Acreditaciones ---- */
 /* SEAES: situación de cada acreditadora (base EGEL, acreditacion_organismos; consulta del 6-nov-2026).
-   CIEES y COMAEM, etapa 4; CNEIP y CA-CNEIP, etapa 3. El resto no está incorporado, según confirmación de la Vicerrectoría. */
+   CIEES y COMAEM, etapa 4; CNEIP y CA-CNEIP, etapa 3. El resto de los organismos del deck no está incorporado (COMACE, CONEVET, CONAEDO y CONCAPREN, confirmado el 11-nov-2026; base actualizada). */
 var SEAES = {CIEES:4, COMAEM:4, CNEIP:3};
 function sxTag(org){ return SEAES[org] ? '<span class="sxt ok">En SEAES · etapa '+SEAES[org]+'</span>' : (org==='Por definir' ? '' : '<span class="sxt no">No incorporado al SEAES</span>'); }
 var NQ12 = 18;
@@ -1700,7 +1700,8 @@ function s12(){
    notas('<p>Unidad de análisis: proyecto curricular acreditable con al menos un programa de la oferta vigente (29). No se cuentan como faltantes las especialidades médicas ni los postécnicos, que no son acreditables, ni Enfermería en el cuidado de heridas (en cierre). COMACE acredita solo licenciatura.</p>'+
      '<p>Cada columna es un cuatrimestre, de 2026 a 2031, y cada celda cuenta las acreditaciones que vencen en él, por nivel. El color es el semáforo respecto de la fecha de corte; el marco rojo es la gestión actual (agosto de 2026 a agosto de 2029) y la línea punteada, la fecha de corte. La columna «Sin acreditación» reúne los proyectos que aún no cuentan con ella, con la acreditadora prevista. Las etiquetas de acreditadora filtran la línea temporal e indican si está incorporada al SEAES.</p>'+
      '<p>Psicología (CNEIP) aparece vencida desde el 25-ene-2026, con autoestudio de refrendo en curso. Salud Pública (maestría, CIEES) vence el 30-nov-2026; su modalidad presencial ya no se renueva y se iniciará la acreditación como programa nuevo en modalidad HyFlex. Psicología está en autoestudio y el resto de las acreditaciones vigentes tienen el autoestudio no iniciado. Químico Farmacobiólogo no tiene organismo definido.</p>'+
-     '<p class="adv">SEAES: constan como incorporados CIEES y COMAEM (etapa 4) y CNEIP y CA-CNEIP (etapa 3), consulta del 6-nov-2026. COMACE, CONEVET, CONAEDO y CONCAPREN se rotulan «No incorporado» por confirmación de la Vicerrectoría; en la base figuran aún como «por confirmar» y conviene actualizar el registro. Ninguna acreditación tiene documento localizado en la base. El autoestudio de Psicología mixta (CA-CNEIP) está no iniciado y se registra bajo el proyecto de Psicología.</p>')+
+     '<p>SEAES: constan como incorporados CIEES y COMAEM (etapa 4) y CNEIP y CA-CNEIP (etapa 3), consulta del 6-nov-2026. COMACE, CONEVET, CONAEDO y CONCAPREN no están incorporados (confirmado por la Vicerrectoría el 11-nov-2026). La incorporación no depende de la UPAEP: se reporta como dato de contexto y se actualiza solo si el organismo cambia de estatus.</p>'+
+     '<p class="adv">Ninguna acreditación tiene documento localizado en la base. El autoestudio de Psicología mixta (CA-CNEIP) está no iniciado y se registra bajo el proyecto de Psicología.</p>')+
    foot(NZF, 4) + '</section>';
 }
 function d12(){

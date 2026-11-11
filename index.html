@@ -247,6 +247,28 @@ button.cvr:hover{background:var(--paper)}
 .cvd .cvl li{display:grid;grid-template-columns:minmax(0,1fr) 1.6em 6em;gap:.4em;align-items:center;padding:.14em 0;border-bottom:1px dotted var(--gl);font-size:.95em;line-height:1.2}
 .cvd .cvl li em{font-style:normal;color:var(--gd);font-size:.88em}
 .cvl .num{text-align:right}
+.dsl{display:flex;flex-wrap:wrap;gap:.2em .9em;font-size:.74em;color:var(--gd);align-items:center}
+.dsl span{display:inline-flex;align-items:center;gap:.35em}
+.dsl i{display:inline-block;width:.85em;height:.85em;border-radius:.15em}
+.dsb{flex:1.6;min-width:0;display:flex;flex-direction:column;min-height:0;overflow:auto}
+.dsb h3,.dsd h3{margin:0 0 .25em;font-size:.78em;letter-spacing:.04em;text-transform:uppercase;color:var(--gd);border-bottom:2px solid var(--ink);padding-bottom:.2em}
+.dsr{display:grid;grid-template-columns:9.4em minmax(0,1fr);gap:.6em;align-items:center;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:.28em .4em;font-size:.9em}
+button.dsr:hover{background:var(--paper)}
+.dsr.on{background:var(--rt);box-shadow:inset .26em 0 0 var(--red)}
+.dsr small{display:block;color:var(--gd);font-size:.78em;line-height:1.1}
+.dsr.ref{color:var(--gd)}
+.dsg{margin:.45em 0 .15em;font-size:.72em;letter-spacing:.04em;text-transform:uppercase;color:var(--gd);font-weight:600}
+.stk{display:flex;height:1.75em;border-radius:.2em;overflow:hidden;background:#E8EAEB}
+.stk i{display:flex;align-items:center;justify-content:center;font-style:normal;font-size:.78em;font-weight:600;min-width:0;overflow:hidden;transition:width .55s cubic-bezier(.2,.85,.25,1)}
+.dsd{flex:1;min-width:0;display:flex;flex-direction:column;min-height:0;overflow:auto}
+.dsh{display:grid;grid-template-columns:15.6em minmax(0,1fr) 2.8em;gap:.5em;align-items:center;font-size:.82em;padding:.13em 0}
+.dsh .cb{height:.7em}
+.dsh .num{text-align:right;font-weight:600}
+.dst{width:100%;border-collapse:collapse;font-size:.8em;margin-top:.2em}
+.dst th{font-size:.82em;text-transform:uppercase;letter-spacing:.04em;color:var(--gd);font-weight:600;text-align:right;border-bottom:2px solid var(--ink);padding:.15em .3em}
+.dst th:first-child,.dst td:first-child{text-align:left}
+.dst td:first-child{white-space:nowrap}
+.dst td{padding:.2em .3em;border-bottom:1px solid var(--line);text-align:right}
 .lgd{display:flex;align-items:center;gap:.5em;font-size:.76em;color:var(--gd)}
 .lgd .gr{width:9em;height:.7em;border-radius:.2em;background:linear-gradient(90deg,#F9D2D8,#E10023)}
 .lgd .nw{display:inline-block;width:.9em;height:.7em;background:#D9DCDE;border-radius:.1em}
@@ -350,7 +372,7 @@ dialog td{padding:.2em .6em .2em 0}
 .kpis.sm{gap:.9em}
 .kpis.sm .kpi{min-width:6.5em;padding:0 .8em}
 .kpis.sm .kpi b{font-size:1.55em}
-#m1 .sc,#m2 .sc{gap:.32em}
+#m1 .sc,#m2 .sc,#ds .sc{gap:.32em}
 .nx{margin:0;font-size:.64em;line-height:1.25}
 .kpis.sm .kpi span{font-size:.7em;max-width:17em;line-height:1.2}
 .h2x{font-size:1.4em!important;line-height:1.15}
@@ -1153,6 +1175,62 @@ function d6(){
   dCVP();
 }
 
+
+/* ============ DESERCIÓN: motivos de no reinscripción (encuesta a no reinscritos) ============
+   Encuesta a estudiantes no reinscritos, otoño 2025 y primavera 2026; exportación del 11-nov-2026.
+   Solo agregados: 230 respuestas únicas (10 duplicados por matrícula depurados), 70 de Ciencias de la Salud.
+   Motivos: reparto de 10 puntos entre 24 razones, agrupadas en seis categorías. No hay denominador: no son tasas. */
+var DS = {"cats": ["Económico", "Institucional", "Progresión", "Personal", "Salud", "Ambiente"], "cs": {"tot": {"n": 70, "c": [43.6, 24.1, 8.3, 13.8, 6.4, 3.9], "top": [["Cambio en la situación económica familiar", 20.0], ["Costo de las colegiaturas", 10.3], ["Incumplimiento del reglamento", 7.5], ["Plan de estudios terminado", 7.5], ["Necesidad de trabajar", 6.8], ["Problemas de salud", 6.4]], "per": [["Licenciatura · Otoño 2025", 22, 2, 3.82], ["Licenciatura · Primavera 2026", 25, 5, 3.6], ["Posgrados · Otoño 2025", 9, 3, 3.41], ["Posgrados · Primavera 2026", 12, 4, 3.94]]}, "lic": {"n": 47, "c": [41.1, 19.0, 9.5, 19.3, 7.6, 3.5], "top": [["Cambio en la situación económica familiar", 21.0], ["Costo de las colegiaturas", 9.5], ["Plan de estudios terminado", 9.1], ["Cambio de ciudad", 8.4], ["Incumplimiento del reglamento", 7.8], ["Problemas de salud", 7.6]], "per": [["Otoño 2025", 22, 2, 3.82], ["Primavera 2026", 25, 5, 3.6]]}, "pos": {"n": 21, "c": [44.2, 37.0, 6.2, 2.9, 4.3, 5.3], "top": [["Asesoría o acompañamiento insuficiente", 15.9], ["Cambio en la situación económica familiar", 15.4], ["Costo de las colegiaturas", 13.0], ["Necesidad de trabajar", 10.1], ["Trámites internos complicados", 7.7], ["Incumplimiento del reglamento", 7.2]], "per": [["Otoño 2025", 9, 3, 3.41], ["Primavera 2026", 12, 4, 3.94]]}}, "doc": {"tot": {"n": 160, "c": [33.2, 34.6, 12.7, 10.8, 6.1, 2.6]}, "lic": {"n": 60, "c": [36.1, 21.4, 16.8, 12.2, 8.7, 4.8]}, "pos": {"n": 45, "c": [28.1, 42.8, 7.2, 13.0, 6.0, 2.9]}}};
+var DSCOL = ['#E10023','#52565A','#B5BABD','#F2A3AF','#FFCC00','#8F9496'];
+var DSTXT = ['#fff','#fff','#2B2E31','#2B2E31','#2B2E31','#fff'];
+var DSCATN = ['Económico','Institucional','Progresión académica','Personal, geográfico o vocacional','Salud','Ambiente estudiantil'];
+st.dsn = 'tot';
+function fuenteDS(){ return 'Fuente: encuesta a estudiantes no reinscritos (otoño 2025 y primavera 2026; exportación 11-nov-2026) · Respuestas únicas · Distribución entre quienes respondieron, no tasas · Cifras agregadas, sin datos personales'; }
+function sDS(){
+  return '<section class="slide" id="ds" aria-labelledby="t-ds">' + head('12 · Matrícula · Motivos de no reinscripción') +
+    '<div class="sc"><h2 id="t-ds" class="h2x">No reinscripción: el motivo económico concentra 44 % de los puntos</h2>' +
+    '<div class="kpis sm">' +
+      '<div class="kpi"><b>20 %</b><span>salida definitiva (14 de 70 respuestas); IC 95 %: 12 a 31 %</span></div>' +
+      '<div class="kpi k-nom"><b>44 %</b><span>de los puntos en motivo económico; IC 95 %: 34 a 53 %</span></div>' +
+      '<div class="kpi"><b>3.73</b><span>satisfacción media; Docencia 3.97 (p = 0.05)</span></div>' +
+      '<div class="kpi k-hc"><b>2.91</b><span>satisfacción con el costo; Docencia 3.58 (p = 0.0001)</span></div></div>' +
+    '<div class="ctrl"><div class="dsl" id="dsl"></div><span>Clic en un nivel para ver sus motivos principales</span></div>' +
+    '<div class="hl"><div class="dsb" id="dsb"></div><div class="dsd" id="dsd"></div></div></div>' +
+    notas('<p>Encuesta a estudiantes no reinscritos de licenciatura, posgrados y online. Cada persona reparte 10 puntos entre 24 razones, que se agrupan en seis categorías: económico (beca, costo, situación familiar, trabajo), institucional (asesoría, reglamento, trámites, oferta, instalaciones, ubicación, nivel académico), progresión académica (plan terminado, prácticas, examen especial), personal, geográfico o vocacional (incluye bajo rendimiento y seguridad), salud y ambiente estudiantil. Las barras son porcentajes del total de puntos.</p>' +
+      '<p>Base: 240 filas, 10 duplicados por matrícula dentro del mismo corte (se conserva la primera), 230 respuestas únicas y 70 de Ciencias de la Salud (28 de Medicina). Cuatro respuestas de Ciencias de la Salud no suman 10 puntos y no se corrigieron; al normalizarlas, el motivo económico pasa de 43.6 a 43.0 %. Online (n = 2) se incluye en el total, pero no se desglosa; tampoco los programas con menos de cinco respuestas.</p>' +
+      '<p>Comparación con Docencia (160 respuestas): motivo económico 43 frente a 34 % (p = 0.13) e institucional 24 frente a 33 % (p = 0.19), sin diferencias significativas; salida definitiva 20 frente a 21 %; satisfacción media 3.73 frente a 3.97 (p = 0.05). La diferencia robusta es la satisfacción con el costo de las colegiaturas (2.91 frente a 3.58; p = 0.0001, vigente tras corregir por las 18 comparaciones); la satisfacción global, 3.25 frente a 3.84 (p = 0.005), es exploratoria. 93 % de Ciencias de la Salud recomendaría la UPAEP, frente a 85 % en Docencia.</p>' +
+      '<p>En Medicina, 16 % de los puntos son de progresión (plan terminado, prácticas): parte de su no reinscripción es tránsito al internado y no deserción. El motivo económico es sobre todo cambio en la situación económica familiar (20 % de los puntos), más que el costo de la colegiatura (10 %).</p>' +
+      '<p class="adv">Sin denominador no hay tasas de deserción: no se comparan con las bajas de la lámina 11. Posgrados tiene 21 respuestas (9 y 12 por periodo): lea los periodos solo como referencia. No se utilizó el texto libre de los estudiantes. Causas de la caída de progresión entre otoño y primavera: hipótesis de calendario o cohorte, sin confirmar.</p>') +
+    foot(fuenteDS(), 12) + '</section>';
+}
+function dsStk(c, tip){
+  return '<div class="stk">' + c.map(function(v,i){
+    return '<i style="width:'+v+'%;background:'+DSCOL[i]+';color:'+DSTXT[i]+'" data-tip="'+DSCATN[i]+': '+Math.round(v)+' %">'+(v>=7 ? Math.round(v)+' %' : '')+'</i>';
+  }).join('') + '</div>';
+}
+function dDS(){
+  var sel = st.dsn, nm = {tot:'Ciencias de la Salud', lic:'Licenciatura', pos:'Posgrados'};
+  var nlab = function(k, g){ return g==='cs' && k==='tot' ? 'n = '+DS.cs.tot.n+' (incluye 2 Online)' : 'n = '+DS[g][k].n; };
+  document.getElementById('dsl').innerHTML = DSCATN.map(function(n,i){ return '<span><i style="background:'+DSCOL[i]+'"></i>'+n+'</span>'; }).join('');
+  var h = '<h3>Motivos de no reinscripción · % de los puntos</h3>';
+  ['tot','lic','pos'].forEach(function(k){
+    h += '<button type="button" class="dsr'+(sel===k?' on':'')+'" data-dsn="'+k+'" aria-pressed="'+(sel===k)+'"><span><b>'+nm[k]+'</b><small>'+nlab(k,'cs')+'</small></span>'+dsStk(DS.cs[k].c)+'</button>';
+  });
+  h += '<div class="dsg">Docencia (referencia)</div>';
+  ['tot','lic','pos'].forEach(function(k){
+    h += '<div class="dsr ref"><span>'+(k==='tot'?'Total':nm[k])+'<small>'+nlab(k,'doc')+'</small></span>'+dsStk(DS.doc[k].c)+'</div>';
+  });
+  document.getElementById('dsb').innerHTML = h;
+  var D = DS.cs[sel], top = D.top.slice(0,5), mx = top[0][1];
+  var d = '<h3>Motivos principales · '+nm[sel]+'</h3>' + top.map(function(x){
+    return '<div class="dsh"><span>'+x[0]+'</span><span class="cb"><i style="width:'+(x[1]/mx*100)+'%;background:#E10023"></i></span><span class="num">'+Math.round(x[1])+' %</span></div>';
+  }).join('');
+  d += '<h3 style="margin-top:.7em">Por periodo</h3><table class="dst"><thead><tr><th></th><th>n</th><th>Salida definitiva</th><th>Satisfacción</th></tr></thead><tbody>' +
+    D.per.map(function(p){ var small = p[1] < 20; return '<tr><td>'+p[0].replace('Licenciatura · ','Lic. · ').replace('Posgrados · ','Pos. · ')+'</td><td>'+p[1]+(small?' †':'')+'</td><td>'+p[2]+' de '+p[1]+'</td><td>'+p[3].toFixed(2)+'</td></tr>'; }).join('') +
+    '</tbody></table><p class="nota">† Menos de 20 respuestas: lectura con cautela. Los puntos de cada motivo son porcentaje del total de puntos del grupo.</p>';
+  document.getElementById('dsd').innerHTML = d;
+}
+
 /* ============ MATRÍCULA Y REPROBACIÓN (diapositivas 5 y 6) ============
    Estructura de unidades según unidades_organizacionales / programas en Supabase (EGEL).
    Hojas de datos: MATD (matrícula por programa: [iniciales, finales] por periodo) y
@@ -1450,7 +1528,7 @@ function sM(){
     notas('<p>Desglose de lo general a lo particular: Vicerrectoría, facultad o escuela, nivel y programa. Un clic en una facultad fija el foco en todas las láminas, y Esc sube un nivel. La estructura de unidades corresponde a la registrada en la base institucional (Supabase EGEL).</p>' +
       '<p>Inscritos = personas únicas al cierre del corte; bajas = iniciales menos finales dentro del periodo, sin inferir causas. Otoño 2026 es un corte en curso, por lo que su comparación con otoño 2025 (cerrado) es orientativa. Verano es un ciclo parcial y no se compara con los semestres.</p>' +
       '<p>Enfermería (Mixta) está en liquidación: pasa de 360 a 37 estudiantes entre otoño 2025 y otoño 2026 y no registra bajas dentro de los periodos, porque su salida ocurre por no reinscripción entre periodos. Por eso el interruptor «Sin programa en liquidación» está activo por defecto; con él, la matrícula de la Vicerrectoría en otoño 2026 es 38 estudiantes mayor que en otoño 2025.</p>' +
-      '<p>La columna «Reprob. P26» es la tasa de materias reprobadas en primavera 2026 (lámina 12), para leer juntos tamaño, bajas y reprobación.</p>') +
+      '<p>La columna «Reprob. P26» es la tasa de materias reprobadas en primavera 2026 (lámina 13), para leer juntos tamaño, bajas y reprobación.</p>') +
     foot(fuenteMat(), 10) + '</section>';
 }
 function sR(){
@@ -1931,7 +2009,7 @@ function aC(){
 function aD(){
   return '<section class="slide red ap" id="ad" aria-labelledby="t-ad">'+head('13 · Plan de acción · Rubro 2 · Desempeño académico', true)+
    '<div class="sc"><h2 id="t-ad">Acciones · Desempeño académico</h2>'+
-   '<p class="lab">Punto de partida (láminas 11 a 13)</p>'+
+   '<p class="lab">Punto de partida (láminas 11 a 14)</p>'+
    '<div class="sts">'+stt('3.2 %','de materias reprobadas en primavera 2026; resto de la universidad, 5.0 %')+
      stt('218','bajas en otoño 2026 · 3.2 % de los inscritos iniciales')+
      stt(CGT.sen,'de '+nf(CGT.gr)+' grupos ('+(CGT.sen/CGT.gr*100).toFixed(1)+' %) con calificaciones extremas o reprobación alta')+'</div>'+
@@ -1942,19 +2020,19 @@ function aD(){
      '<div class="ac1"><span class="n">2</span><div><p>Identificar las <b>materias con mayor reprobación atribuible a dificultad propia del alumno</b>, cuando la reprobación provenga de una evaluación real, y estructurar <b>cursos remediales</b> en ellas.</p>'+
        '<span class="tg2">Rótulo neutro: «materias con mayor reprobación»</span></div></div>'+
    '</div></div>'+
-   notas('<p>Estatus: la Vicerrectoría reprueba menos que el resto de la universidad (3.2 % frente a 5.0 % en primavera 2026) y las bajas de otoño 2026 son 218. La tasa de Enfermería (5.6 %) duplica la de Medicina (2.8 %). La lámina 13 añade la distribución de calificaciones: '+CGT.sen+' de '+nf(CGT.gr)+' grupos presentan señal en al menos uno de tres criterios.</p>'+
+   notas('<p>Estatus: la Vicerrectoría reprueba menos que el resto de la universidad (3.2 % frente a 5.0 % en primavera 2026) y las bajas de otoño 2026 son 218. La tasa de Enfermería (5.6 %) duplica la de Medicina (2.8 %). La lámina 14 añade la distribución de calificaciones: '+CGT.sen+' de '+nf(CGT.gr)+' grupos presentan señal en al menos uno de tres criterios.</p>'+
      '<p><b>Hipótesis preliminar (H1), no un hallazgo confirmado.</b> La evaluación interna de Medicina tiende a la indulgencia: las calificaciones se agrupan hacia valores altos, la reprobación global es baja (2.5 % en primavera 2026) mientras el desempeño externo (ENARM) va a la baja. Bajo H1, las materias con reprobación alta serían las que evalúan con un estándar más cercano al externo, y su tasa describiría exigencia y no riesgo. La lectura alterna es que las calificaciones altas reflejan buen desempeño o selección de ingreso y que las materias de reprobación alta son más difíciles o están mal calibradas; ambas lecturas pueden coexistir, de modo que una materia puede ser rigurosa y a la vez un cuello de botella.</p>'+
      '<p>Evidencia descriptiva en Medicina (historial de asignaturas, otoño 2024, otoño 2025 y primavera 2026; escala 0 a 10, mínimo 7.0): mediana 9.0; 51 % a 54 % de las calificaciones son 9 o más y 13 % a 16 % son 10; solo 2.3 % a 3.2 % están por debajo de 7. Hay 1,400 calificaciones de exactamente 7.0 frente a 146 en 6.9 y 486 en 7.1 (el 8.0 también sobresale, por preferencia por enteros, pero el exceso en 7.0 es mayor). La deriva es leve (media de 8.78 a 8.85 y 8.84). Las cuatro materias con reprobación alta se separan del resto: media de 7.9 a 8.4 frente a 8.85. La compresión no es uniforme, y ahí se concentra la discriminación.</p>'+
      '<p class="adv">Límites: no hay estándar externo en el archivo, así que una mediana de 9 puede indicar indulgencia, buena preparación o selección de ingreso. Odontología también tiene distribución alta con reprobación mayor, por lo que la compresión no es exclusiva de Medicina. La coincidencia temporal con la baja del ENARM no establece relación. Que las materias de tasa alta sean más exigentes no las hace más válidas. La cobertura de esa fuente es solo Medicina y Odontología y sus cifras difieren de las de la lámina 13, que usa otra base y otros periodos.</p>'+
      '<p class="adv">H1 pierde apoyo si (a) la calificación en las materias de distribución comprimida predice el desempeño posterior en el EGEL o el ENARM tan bien como la de las materias de tasa alta, o (b) la dispersión y la forma de la distribución son equivalentes entre ambos grupos y se explican por la composición de las cohortes. Ninguna prueba se ha realizado; el criterio debe pre-registrarse antes de calcularla. Mientras tanto se usa el rótulo neutro «materias con mayor reprobación» y no «materias de riesgo». Los nombres de asignaturas y docentes se reservan para directores y comités.</p>')+
-   foot(fuenteAP('láminas 11 a 13'), 13) + '</section>';
+   foot(fuenteAP('láminas 11 a 14'), 13) + '</section>';
 }
 
 function aV(){
   var O = L8.org, Gv = L8.gob, vet = byId('vet');
   return '<section class="slide red ap" id="av" aria-labelledby="t-av">'+head('18 · Plan de acción · Rubro 3 · Vinculación', true)+
    '<div class="sc"><h2 id="t-av">Acciones · Vinculación</h2>'+
-   '<p class="lab">Punto de partida (láminas 15 y 16)</p>'+
+   '<p class="lab">Punto de partida (láminas 16 y 17)</p>'+
    '<div class="sts">'+stt(O.a,'convenios activos con organizaciones sociales y empresas')+
      stt(Gv.a,'convenios activos con gobierno')+
      stt(tot(vet),'académicos en Veterinaria y Zootecnia, unidad de salud animal')+'</div>'+
@@ -1965,10 +2043,10 @@ function aV(){
    '<p class="lab">Para dar atención a</p>'+
    '<div class="dst big"><div>Comunidad del Barrio de Santiago</div><div>Zonas aledañas</div><div>Comunidades</div><div>Empresas</div></div>'+
    '</div>'+
-   notas('<p>Estatus: la red de instituciones existente incluye '+O.a+' convenios activos con organizaciones sociales y empresas y '+Gv.a+' con gobierno; los 15 convenios de Servicios de Salud del Estado de Puebla, aún en trámite, condicionan la articulación con el sector público en campos clínicos (lámina 16).</p>'+
+   notas('<p>Estatus: la red de instituciones existente incluye '+O.a+' convenios activos con organizaciones sociales y empresas y '+Gv.a+' con gobierno; los 15 convenios de Servicios de Salud del Estado de Puebla, aún en trámite, condicionan la articulación con el sector público en campos clínicos (lámina 17).</p>'+
      '<p class="adv">Brecha: las actividades registradas en los convenios (ciclos clínicos, servicio social, prácticas, estancias) no incluyen jornadas, así que no existe línea base para «continuidad» ni «incrementar». Conviene registrar cada jornada con fecha, sede, unidades participantes y personas atendidas.</p>'+
      '<p>Falta definir si las jornadas se apoyarán en convenios específicos con las comunidades y empresas destinatarias.</p>')+
-   foot(fuenteAP('láminas 15 y 16'), 18) + '</section>';
+   foot(fuenteAP('láminas 16 y 17'), 18) + '</section>';
 }
 
 function aT(){
@@ -2003,6 +2081,7 @@ var SL = [
   {id:'s4',titulo:'SNII'},
   {id:'ac',titulo:'Plan de acción: calidad, prestigio y desempeño docente'},
   {id:'m1',titulo:'Matrícula: inscritos y bajas'},
+  {id:'ds',titulo:'Deserción: motivos de no reinscripción'},
   {id:'m2',titulo:'Reprobación: Vicerrectoría y resto'},
   {id:'cg',titulo:'Distribución de calificaciones finales'},
   {id:'ad',titulo:'Plan de acción: desempeño académico'},
@@ -2011,7 +2090,7 @@ var SL = [
   {id:'av',titulo:'Plan de acción: vinculación'},
   {id:'at',titulo:'Plan de acción trienal'}
 ];
-stage.innerHTML = sPT()+sOG()+s1()+s9()+s12()+aP()+s2()+s3()+s4()+aC()+sM()+sR()+sCG()+aD()+s5()+s6()+aV()+aT();
+stage.innerHTML = sPT()+sOG()+s1()+s9()+s12()+aP()+s2()+s3()+s4()+aC()+sM()+sDS()+sR()+sCG()+aD()+s5()+s6()+aV()+aT();
 /* Numeración automática: cabecera y pie siguen el orden real de las láminas */
 Array.prototype.forEach.call(stage.querySelectorAll('section.slide'), function(sec, i){
   var kk = sec.querySelector('.kick'); if(kk) kk.textContent = kk.textContent.replace(/^\d+ · /, (i+1)+' · ');
@@ -2137,7 +2216,7 @@ function syncCtl(){
   Array.prototype.forEach.call(document.querySelectorAll('[data-rm]'), function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-rm')===st.rm ? 'true':'false'); });
   Array.prototype.forEach.call(document.querySelectorAll('[data-xliq]'), function(b){ b.setAttribute('aria-pressed', st.xliq ? 'true':'false'); });
 }
-function render(){ if(!st.sel) st.nv = null; d2(); d3(); d4(); dM(); dR(); d5(); d6(); d9(); d12(); dCG(); syncCtl(); syncSel(); }
+function render(){ if(!st.sel) st.nv = null; d2(); d3(); d4(); dM(); dDS(); dR(); d5(); d6(); d9(); d12(); dCG(); syncCtl(); syncSel(); }
 
 function refocus(attr, val){
   var a = document.querySelector('.slide.on ['+attr+'="'+val+'"]');
@@ -2178,6 +2257,7 @@ document.addEventListener('click', function(e){
     }
   }
   if((el = t.closest('[data-pais]'))){ var pc = el.getAttribute('data-pais'); st.pais = (st.pais===pc) ? null : pc; render(); refocus('data-pais', pc); return; }
+  if((el = t.closest('[data-dsn]'))){ var dk = el.getAttribute('data-dsn'); st.dsn = dk; render(); refocus('data-dsn', dk); return; }
   if((el = t.closest('[data-cvx]'))){ var xk = el.getAttribute('data-cvx'); st.cvx = (st.cvx===xk) ? null : xk; render(); refocus('data-cvx', xk); return; }
   if((el = t.closest('[data-nzi]'))){ st.ind = el.getAttribute('data-nzi'); render(); refocus('data-nzi', st.ind); return; }
   if((el = t.closest('[data-sg]'))){ var sp = el.getAttribute('data-sg').split('|'); st.sg = {lv: sp[0]==='*' ? '*' : +sp[0], q: (sp[1]==='*' || sp[1]==='n') ? sp[1] : +sp[1], s: sp[2]}; render(); refocus('data-sg', sp.join('|')); return; }

@@ -373,6 +373,38 @@ dialog td{padding:.2em .6em .2em 0}
 .kpis.sm .kpi{min-width:6.5em;padding:0 .8em}
 .kpis.sm .kpi b{font-size:1.55em}
 #m1 .sc,#m2 .sc,#ds .sc{gap:.32em}
+#ot .sc{gap:.32em}
+.otb{flex:2;min-width:0;display:flex;flex-direction:column;min-height:0;overflow:auto}
+.otd{flex:1.1;min-width:0;display:flex;flex-direction:column;min-height:0;overflow:auto}
+.otm{width:100%;border-collapse:separate;border-spacing:.14em;font-size:.78em;table-layout:fixed}
+.otm th{font-weight:600;text-align:center;vertical-align:bottom;padding:0}
+.otm th.cr{text-align:left;width:17em;color:var(--gd);font-size:.9em;text-transform:uppercase;letter-spacing:.04em}
+.otm th.cn,.otm td.cn{width:5em}
+.otm th button{width:100%;background:none;border:0;border-bottom:2px solid var(--ink);padding:.25em .1em;line-height:1.1}
+.otm th button:hover{background:var(--paper)}
+.otm th button.on{background:var(--rt);box-shadow:inset 0 -.26em 0 var(--red)}
+.otm th small{display:block;color:var(--gd);font-weight:400;font-size:.82em}
+.otm td{text-align:center;padding:.2em .1em;border-radius:.2em;font-weight:600;white-space:nowrap}
+.otm td.o{background:#FBD9DE;color:#8C0016}
+.otm td.p{background:#FFF1BF;color:#5E4700}
+.otm td.c{background:#E3F1E8;color:#1D6B40}
+.otm td.n{background:#EEEFF0;color:#52565A}
+.otm td.sel{outline:.14em solid var(--ink);outline-offset:-.14em}
+.otm td.cr{text-align:left;font-weight:500;background:none;white-space:nowrap;padding-left:.1em;line-height:1.1}
+.otm td.cn{background:none;color:var(--gd)}
+.otm tfoot td{background:none;border-top:2px solid var(--ink);border-radius:0}
+.otm tfoot td.cr{font-weight:600}
+.otm tfoot small{font-weight:400;color:var(--gd)}
+.otb .ots{margin:.3em 0 0;font-size:.76em;line-height:1.25}
+.otk{display:grid;grid-template-columns:5.2em minmax(0,1fr);gap:.4em;padding:.15em .1em;border-bottom:1px solid var(--line);font-size:.8em;line-height:1.25}
+.otk b{font-weight:600;color:var(--gd)}
+.otk.liq{background:var(--rt);box-shadow:inset .26em 0 0 var(--red);padding-left:.6em}
+.otd p{margin:.05em 0 .15em;font-size:.78em;line-height:1.2}
+.otd ol{margin:.05em 0 0;padding-left:1.3em;font-size:.78em;line-height:1.2}
+.otd li{margin-bottom:.15em}
+
+.otd h3{margin:.3em 0 .15em}
+.otd h3:first-child{margin-top:0}
 .nx{margin:0;font-size:.64em;line-height:1.25}
 .kpis.sm .kpi span{font-size:.7em;max-width:17em;line-height:1.2}
 .h2x{font-size:1.4em!important;line-height:1.15}
@@ -607,7 +639,7 @@ dialog td{padding:.2em .6em .2em 0}
   <table>
     <tr><td><kbd>→</kbd> <kbd>Espacio</kbd> <kbd>AvPág</kbd></td><td>Siguiente</td></tr>
     <tr><td><kbd>←</kbd> <kbd>RePág</kbd></td><td>Anterior</td></tr>
-    <tr><td><kbd>1</kbd>–<kbd>9</kbd> · <kbd>0</kbd></td><td>Ir a una diapositiva del 1 al 9; para la 10 a la 19 se pulsan dos dígitos seguidos (<kbd>1</kbd><kbd>0</kbd> = la 10; <kbd>1</kbd><kbd>9</kbd> = la 19)</td></tr>
+    <tr><td><kbd>1</kbd>–<kbd>9</kbd> · <kbd>0</kbd></td><td>Ir a una diapositiva del 1 al 9; para la 10 a la 20 se pulsan dos dígitos seguidos (<kbd>1</kbd><kbd>0</kbd> = la 10; <kbd>2</kbd><kbd>0</kbd> = la 20)</td></tr>
     <tr><td><kbd>Clic</kbd></td><td>En una tarjeta o renglón: fija el foco en esa facultad o escuela en todas las diapositivas. En matrícula y reprobación, un segundo clic baja a nivel y programa</td></tr>
     <tr><td><kbd>Clic</kbd></td><td>Convenios: en una línea, país, institución o grupo para ver el detalle; los botones superiores cambian la medida</td></tr>
     <tr><td><kbd>Esc</kbd></td><td>Quitar el foco, o subir un nivel en el detalle de convenios</td></tr>
@@ -782,7 +814,7 @@ function s2(){
    '<div class="dyn" id="d2"></div><p class="nota">Planta adscrita (572). En facultades, «por TC» es estudiantes inscritos en otoño 2026 entre los TC adscritos. «Imparten»: docentes con grupo en otoño 2026 sin importar su adscripción; 591 únicos, incl. 17 TC externos y 8 administrativos.</p></div>'+
    '<aside class="notas" aria-label="Notas del orador"><h4>Notas del orador</h4>'+
    '<p>Nómina = tiempo completo ('+G_tc+') + medio tiempo ('+G_mt+'); HC = por horas ('+G_hc+'). La asignación del tipo de contratación proviene de la base (vinculaciones laborales vigentes, con las reglas de asignación de noviembre) y sigue pendiente de validación con Recursos Humanos.</p>'+
-   '<p>La adscripción es administrativa y única, según la base al 10 de noviembre de 2026 tras las migraciones 041 y 042. La fila «Vicerrectoría y áreas de apoyo» agrupa la Vicerrectoría (3), la Secretaría Académica (4), la Escuela de Bioética (7), Posgrados (3), Vinculación Clínica (3) y dos coordinaciones (2); no es una facultad y no admite foco; la razón de estudiantes por TC se calcula solo para las siete facultades, con los inscritos de otoño 2026 (lámina 11) entre los TC de la planta adscrita; las escuelas y las áreas no la muestran; en esa fila, «imparten» se refiere solo a la Escuela de Bioética. La Dirección de Ciencias Básicas de la Salud se presenta aparte, como adscripción transversal.</p><p>La base registra 593 académicos activos. Los 21 restantes, todos de tiempo completo, están adscritos a unidades externas (15 a la Vicerrectoría de Docencia y 6 a otras direcciones generales), no cuentan como planta de la Vicerrectoría aunque algunos impartan clases en ella, y por eso la planta de la lámina 7 suma 572. La línea «Imparten» de cada tarjeta viene del archivo de grupos de otoño 2026 (2,911 filas de los decanatos de ciencias de la salud): 591 personas únicas con al menos un grupo, de las cuales 466 son HC, 100 de nómina de planta, 17 TC de unidades externas y 8 administrativos. Una persona que imparte en varias unidades cuenta en cada una, por lo que las tarjetas suman más que 591. Diez académicos activos de la base no tienen grupo en el periodo.</p></aside>'+
+   '<p>La adscripción es administrativa y única, según la base al 10 de noviembre de 2026 tras las migraciones 041 y 042. La fila «Vicerrectoría y áreas de apoyo» agrupa la Vicerrectoría (3), la Secretaría Académica (4), la Escuela de Bioética (7), Posgrados (3), Vinculación Clínica (3) y dos coordinaciones (2); no es una facultad y no admite foco; la razón de estudiantes por TC se calcula solo para las siete facultades, con los inscritos de otoño 2026 (lámina 12) entre los TC de la planta adscrita; las escuelas y las áreas no la muestran; en esa fila, «imparten» se refiere solo a la Escuela de Bioética. La Dirección de Ciencias Básicas de la Salud se presenta aparte, como adscripción transversal.</p><p>La base registra 593 académicos activos. Los 21 restantes, todos de tiempo completo, están adscritos a unidades externas (15 a la Vicerrectoría de Docencia y 6 a otras direcciones generales), no cuentan como planta de la Vicerrectoría aunque algunos impartan clases en ella, y por eso la planta de la lámina 8 suma 572. La línea «Imparten» de cada tarjeta viene del archivo de grupos de otoño 2026 (2,911 filas de los decanatos de ciencias de la salud): 591 personas únicas con al menos un grupo, de las cuales 466 son HC, 100 de nómina de planta, 17 TC de unidades externas y 8 administrativos. Una persona que imparte en varias unidades cuenta en cada una, por lo que las tarjetas suman más que 591. Diez académicos activos de la base no tienen grupo en el periodo.</p></aside>'+
    foot(fuente(), 6) + '</section>';
 }
 
@@ -1200,7 +1232,7 @@ function sDS(){
       '<p>Base: 240 filas, 10 duplicados por matrícula dentro del mismo corte (se conserva la primera), 230 respuestas únicas y 70 de Ciencias de la Salud (28 de Medicina). Cuatro respuestas de Ciencias de la Salud no suman 10 puntos y no se corrigieron; al normalizarlas, el motivo económico pasa de 43.6 a 43.0 %. Online (n = 2) se incluye en el total, pero no se desglosa; tampoco los programas con menos de cinco respuestas.</p>' +
       '<p>Comparación con Docencia (160 respuestas): motivo económico 43 frente a 34 % (p = 0.13) e institucional 24 frente a 33 % (p = 0.19), sin diferencias significativas; salida definitiva 20 frente a 21 %; satisfacción media 3.73 frente a 3.97 (p = 0.05). La diferencia robusta es la satisfacción con el costo de las colegiaturas (2.91 frente a 3.58; p = 0.0001, vigente tras corregir por las 18 comparaciones); la satisfacción global, 3.25 frente a 3.84 (p = 0.005), es exploratoria. 93 % de Ciencias de la Salud recomendaría la UPAEP, frente a 85 % en Docencia.</p>' +
       '<p>En Medicina, 16 % de los puntos son de progresión (plan terminado, prácticas): parte de su no reinscripción es tránsito al internado y no deserción. El motivo económico es sobre todo cambio en la situación económica familiar (20 % de los puntos), más que el costo de la colegiatura (10 %).</p>' +
-      '<p class="adv">Sin denominador no hay tasas de deserción: no se comparan con las bajas de la lámina 11. Posgrados tiene 21 respuestas (9 y 12 por periodo): lea los periodos solo como referencia. No se utilizó el texto libre de los estudiantes. Causas de la caída de progresión entre otoño y primavera: hipótesis de calendario o cohorte, sin confirmar.</p>') +
+      '<p class="adv">Sin denominador no hay tasas de deserción: no se comparan con las bajas de la lámina 12. Posgrados tiene 21 respuestas (9 y 12 por periodo): lea los periodos solo como referencia. No se utilizó el texto libre de los estudiantes. Causas de la caída de progresión entre otoño y primavera: hipótesis de calendario o cohorte, sin confirmar.</p>') +
     foot(fuenteDS(), 12) + '</section>';
 }
 function dsStk(c, tip){
@@ -1528,7 +1560,7 @@ function sM(){
     notas('<p>Desglose de lo general a lo particular: Vicerrectoría, facultad o escuela, nivel y programa. Un clic en una facultad fija el foco en todas las láminas, y Esc sube un nivel. La estructura de unidades corresponde a la registrada en la base institucional (Supabase EGEL).</p>' +
       '<p>Inscritos = personas únicas al cierre del corte; bajas = iniciales menos finales dentro del periodo, sin inferir causas. Otoño 2026 es un corte en curso, por lo que su comparación con otoño 2025 (cerrado) es orientativa. Verano es un ciclo parcial y no se compara con los semestres.</p>' +
       '<p>Enfermería (Mixta) está en liquidación: pasa de 360 a 37 estudiantes entre otoño 2025 y otoño 2026 y no registra bajas dentro de los periodos, porque su salida ocurre por no reinscripción entre periodos. Por eso el interruptor «Sin programa en liquidación» está activo por defecto; con él, la matrícula de la Vicerrectoría en otoño 2026 es 38 estudiantes mayor que en otoño 2025.</p>' +
-      '<p>La columna «Reprob. P26» es la tasa de materias reprobadas en primavera 2026 (lámina 13), para leer juntos tamaño, bajas y reprobación.</p>') +
+      '<p>La columna «Reprob. P26» es la tasa de materias reprobadas en primavera 2026 (lámina 14), para leer juntos tamaño, bajas y reprobación.</p>') +
     foot(fuenteMat(), 10) + '</section>';
 }
 function sR(){
@@ -1569,6 +1601,7 @@ function dotS(k){ return '<i class="dot sm-'+k+'"></i>'; }
 
 var LVN = ['Licenciatura','Especialidad','Maestría','Curso postécnico'];
 var SIT_E = 'Rediseño en elaboración; envío a CIFRHS programado para noviembre de 2026';
+var SIT_LIQ = 'En liquidación: la modalidad escolarizada ya no se ofertará (indicación de la Vicerrectoría, 11-nov-2026). Se ofertaría solo la mixta, cuya opinión técnico-académica fue no favorable y se vuelve a enviar a la CIFRHS';
 var SIT_R2F = 'Reenviado con adecuaciones (intento 2), con folio, en espera de dictamen';
 var SIT_R2 = 'Reenviado con adecuaciones (intento 2), en espera de folio';
 /* [código, nivel, nombre, modalidad, fin OTA, fin RVOE (parseado del texto reportado), etapa de renovación, ruta, situación del trámite, requiere OTA, requiere RVOE] */
@@ -1616,7 +1649,7 @@ var PR = [
   Q('PRG-041',2,'Psicoterapia Cognitivo y Conductual','Esc.','2028-03-06','2027-04-23',0,'POR_CONFIRMAR'),
   Q('PRG-042',2,'Psicología del Trabajo y de las Organizaciones','Mixta','2029-11-11','2030-01-09',null,''),
   Q('PRG-043',2,'Salud Pública','Esc.','2026-05-20','2028-06-29',6,'DEPENDE_MODALIDAD_MIXTA'),
-  Q('PRG-044',2,'Ciencias de la Salud','Esc.','2026-11-11','2029-02-23',6,'DEPENDE_MODALIDAD_MIXTA'),
+  Q('PRG-044',2,'Ciencias de la Salud','Esc.','2026-11-11','2029-02-23',6,'DEPENDE_MODALIDAD_MIXTA',SIT_LIQ),
   Q('PRG-046',2,'Nutrición Clínica','Mixta','2027-09-07','2028-12-20',0,'POR_CONFIRMAR'),
   Q('PRG-047',2,'Administración de Instituciones de Salud','Mixta',null,'2028-06-20',null,'',  '',false,true),
   Q('PRG-049',2,'Salud Pública','No esc.','2027-08-22','2027-12-20',6,'DEPENDE_MODALIDAD_MIXTA'),
@@ -1626,6 +1659,7 @@ var PR = [
   Q('PRG-053',3,'Postécnico de Enfermería Quirúrgica','Esc.',null,null,null,'','',true,false),
   Q('PRG-054',3,'Postécnico de Enfermería en Cuidados Intensivos','Esc.',null,null,null,'','',true,false)
 ];
+PR.forEach(function(p){ p.liq = (p.c === 'PRG-044'); });
 function pS(p,ind){ if(ind==='ota'){ return p.ro ? sem(p.ota) : 'n'; } return p.rr ? sem(p.rv) : 'n'; }
 function pF(p,ind){ return ind==='ota' ? p.ota : p.rv; }
 function pNota(p,ind){
@@ -1637,7 +1671,7 @@ function listaProg(arr, ind, conSit){
   arr = arr.slice().sort(function(a,b){ var fa = pF(a,ind)||'9999', fb = pF(b,ind)||'9999'; return fa<fb?-1:fa>fb?1:a.c<b.c?-1:1; });
   return '<div class="cols2">'+arr.map(function(p){
     var f = pF(p,ind), s = pS(p,ind);
-    return '<div class="nl"><span>'+dotS(s)+'</span><span>'+p.n+' <small>· '+LVN[p.lv]+' · '+p.m+'</small>'+(en6(f)?'<span class="tag6">≤ 6 meses</span>':'')+'</span>'+
+    return '<div class="nl"><span>'+dotS(s)+'</span><span>'+p.n+' <small>· '+LVN[p.lv]+' · '+p.m+'</small>'+(p.liq?'<em class="tg" title="En liquidación">Liquid.</em>':'')+(en6(f)?'<span class="tag6">≤ 6 meses</span>':'')+'</span>'+
       '<span>'+(f? fF(f) : '<small>'+pNota(p,ind)+'</small>')+'</span><span class="num">'+(f? dTxt(f) : '')+'</span></div>';
   }).join('')+'</div>';
 }
@@ -1702,7 +1736,7 @@ function s9(){
    '<div class="dyn" id="d9" style="flex:1;min-height:0"></div></div>'+
    notas('<p>Cada columna es un cuatrimestre (E–A, enero a abril; M–A, mayo a agosto; S–D, septiembre a diciembre), agrupado por año, de 2026 a 2031. La columna «2032+» reúne los 2 RVOE que vencen después de esa fecha (Trabajo Social y Psicología, modalidad mixta, julio de 2034). Cada celda muestra cuántos programas vencen en ese cuatrimestre, por nivel. El color es el semáforo respecto de la fecha de corte: rojo, vencido; naranja, último año (conclusión del autoestudio y visita); amarillo, uno a dos años (periodo de autoestudio); verde, más de dos años. Una celda que contiene la fecha de corte o uno de los límites de uno y dos años puede mostrar dos colores.</p>'+
      '<p>El marco rojo señala la gestión actual, de agosto de 2026 a agosto de 2029; la línea punteada marca la fecha de corte. Al hacer clic en una celda, en un color del total o en una etiqueta de estatus, se listan los programas correspondientes; la columna «Sin fecha» reúne los que no requieren el indicador o no tienen fecha capturada.</p>'+
-     '<p>Universo: 51 programas de la oferta vigente. Quedan fuera PRG-003, 045, 048 y 055, que concentran las anomalías normativas de la base (RVOE vencido y vigencias sin capturar).</p>'+
+     '<p>Universo: 51 programas de la oferta vigente. Quedan fuera PRG-003, 045, 048 y 055, que concentran las anomalías normativas de la base (RVOE vencido y vigencias sin capturar). La Maestría en Ciencias de la Salud escolarizada (PRG-044) está en liquidación: ya no se ofertará, pero su OTA y su RVOE siguen contando en el universo hasta que concluyan.</p>'+
      '<p class="adv">La vigencia del RVOE está capturada como texto libre; se tomó la última fecha mencionada de cada texto, incluidos refrendos. Validar antes de proyectar. Los 5 postécnicos requieren OTA pero no tienen fecha capturada; no requieren RVOE. Administración de Instituciones de Salud no requiere OTA.</p>')+
    foot(NZF, 3) + '</section>';
 }
@@ -1757,6 +1791,97 @@ function d9(){
   h += '<div class="nlist"><h3>'+ttl+' ('+sel.length+') · '+(ind==='ota'?'OTA':'RVOE')+'</h3>'+listaProg(sel, ind)+'</div>';
   document.getElementById('d9').innerHTML = h;
   Array.prototype.forEach.call(document.querySelectorAll('[data-nzi]'), function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-nzi')===st.ind ? 'true':'false'); });
+}
+
+/* ---- Opiniones técnico-académicas no favorables: matriz de resultados declarados (cinco dictámenes CIFRHS, jun-ago 2026) ---- */
+var OTC = ['Campo disciplinar','Perfil profesional','Campo clínico','Ingreso','Estructura y prácticas','Acervo básico','Acervo virtual','Docentes','Infraestructura','Evaluación'];
+var OTP = [
+  {k:'odo', n:'Odontología', s:'Lic.', pr:'PRG-011', fo:'2026-07-06', of:'DGCES-DG-2137-2026 · CIFRHS-0402-26',
+   c:[['o'],['o','Ningún ítem cumplido, según el oficio'],['o'],['o'],['o'],['o'],['c'],['o'],['c','100 %, con tensión en simuladores'],['o']],
+   nuc:'Deficiencias amplias en fundamento, perfil profesional, articulación curricular, formación clínica, docentes, biblioteca y evaluación.',
+   apr:'Infraestructura y biblioteca virtual (100 %).',
+   pri:['Definir y acreditar el perfil profesional y las competencias.','Integrar el mapa curricular y alinear materias, contenidos, actividades, horas y evaluación.','Documentar operación clínica, capacidad, cupos, horarios, supervisión y competencias por práctica.']},
+  {k:'qfb', n:'Químico Farmacobiólogo', s:'Lic.', pr:'PRG-008', fo:'2026-07-03', of:'DGCES-DG-2084-2026 · CIFRHS-0392-26',
+   c:[['o'],['c'],['c'],['o'],['o'],['c'],['c'],['c'],['o'],['c']],
+   nuc:'Contenidos profesionales específicos, ingreso, desarrollo de competencias, manuales de simulación y evidencia de dos laboratorios.',
+   apr:'Perfil profesional, escenarios, acervos, docentes y evaluación.',
+   pri:['Incorporar o localizar de forma explícita los contenidos farmacéuticos y de laboratorio señalados.','Relacionar competencias con asignaturas, actividades y evaluación.','Completar programas y manuales de simulación.']},
+  {k:'fis', n:'Fisioterapia', s:'Lic.', pr:'PRG-009', fo:'2026-06-12', of:'DGCES-DG-1860-2026 · CIFRHS-0345-26',
+   c:[['o'],['p','Parcial: perfil no acreditado'],['p','Solo se cumplen los ítems 3.6 y 3.16'],['c'],['o'],['c'],['n','El oficio no informa un apartado separado'],['c'],['o'],['c']],
+   nuc:'Perfil profesional, campo clínico, coherencia curricular, distribución de horas, contenidos y manuales de prácticas, operación y seguridad.',
+   apr:'Ingreso, acervo, docentes y evaluación.',
+   pri:['Revisar perfil profesional y requisitos clínicos con la cédula completa.','Alinear materias y contenidos con las competencias de egreso.','Rehacer o justificar la distribución de horas y cupos con evidencia.']},
+  {k:'nut', n:'Nutrición', s:'Lic.', pr:'PRG-010', fo:'2026-07-22', of:'DGCES-DG-2290-2026 · CIFRHS-0451-26',
+   c:[['o'],['c'],['o'],['c'],['o'],['c'],['c'],['o'],['p','Solo se cumplen tres ítems'],['o']],
+   nuc:'Escenarios profesionales, convenios, regulación y supervisión, horas prácticas, docentes, infraestructura y evaluación o seguimiento.',
+   apr:'Perfil profesional, ingreso, acervo básico y acervo digital.',
+   pri:['Acreditar prácticas y servicio social con documentos vigentes, específicos y firmados, regulación y supervisores.','Desglosar teoría, práctica institucional y práctica real por asignatura.','Completar planta docente, expedientes, dedicación y funciones.']},
+  {k:'mae', n:'Maestría en Ciencias de la Salud', s:'Mixta', pr:'PRG-044', fo:'2026-08-07', of:'DGCES-DG-2618-2026 · CIFRHS-0550-26',
+   c:[['o','Observación sobre nuevas tecnologías'],['c'],['c'],['c','100 %, incluido el complemento'],['p','100 % en lo general; observaciones en la modalidad'],['c'],['c'],['c'],['c'],['c']],
+   nuc:'Nuevas tecnologías, guías de estudio, plataforma y acceso, y aplicación no explicada de un bloque no escolarizado.',
+   apr:'Apartado curricular general y demás criterios.',
+   pri:['Aclarar la aplicabilidad del criterio 5.21 (no escolarizada) a un programa mixto.','Integrar guías docentes y estudiantiles para actividades presenciales y virtuales.','Presentar plataforma y acceso activo con las evidencias requeridas.']}
+];
+var OTLAB = {o:'Obs.', p:'Parcial', c:'100 %', n:'—'};
+var OTTIP = {o:'Observaciones', p:'Parcial', c:'100 % según el oficio', n:'Sin dato en el oficio'};
+var OTCOL = {o:'#FBD9DE', p:'#FFF1BF', c:'#E3F1E8', n:'#EEEFF0'};
+st.otp = 'odo';
+function otCount(p, s){ return p.c.filter(function(x){ return x[0]===s; }).length; }
+function fuenteOT(){ return 'Fuente: oficios de la CIFRHS (jun-ago 2026) y análisis de los cinco dictámenes · Vigencias de OTA: base VCS, corte ' + CFG.corte + ' · Recuento de criterios declarados; no pondera gravedad'; }
+function prBy(c){ return PR.filter(function(p){ return p.c===c; })[0]; }
+function sOT(){
+  return '<section class="slide" id="ot" aria-labelledby="t-ot">' + head('5 · Normativo · Opiniones técnico-académicas no favorables') +
+    '<div class="sc"><h2 id="t-ot" class="h2x">Cinco OTA no favorables: pendientes en campo disciplinar, prácticas y modalidad</h2>' +
+    '<div class="kpis sm">' +
+      '<div class="kpi"><b>5</b><span>OTA no favorables (jun-ago 2026): 4 licenciaturas y 1 maestría</span></div>' +
+      '<div class="kpi k-nom"><b>5 de 5</b><span>con pendientes en campo disciplinar y en estructura o prácticas</span></div>' +
+      '<div class="kpi"><b>8 de 10</b><span>criterios con observaciones en Odontología; Maestría, 1 de 10</span></div>' +
+      '<div class="kpi k-hc"><b>7</b><span>productos comunes de expediente propuestos</span></div></div>' +
+    '<div class="ctrl"><div class="dsl" id="otl"></div><span>Clic en un programa para ver su detalle</span></div>' +
+    '<div class="hl"><div class="otb" id="otb"></div><div class="otd" id="otd"></div></div></div>' +
+    notas('<p>Cinco programas recibieron entre el 12 de junio y el 7 de agosto de 2026 una Opinión Técnico-Académica No Favorable de la CIFRHS: Fisioterapia (12-jun), Químico Farmacobiólogo (3-jul), Odontología (6-jul), Nutrición (22-jul) y la Maestría en Ciencias de la Salud en modalidad mixta (7-ago). La matriz reproduce el resultado declarado en cada oficio por criterio: «Obs.» indica faltantes o incumplimientos, «100 %» reproduce la calificación verbal del oficio y «Parcial» marca criterios con ítems cumplidos y no cumplidos. La daga (†) señala un matiz del oficio, visible al pasar el cursor.</p>' +
+      '<p>Lectura: las cuatro licenciaturas coinciden en observaciones de campo disciplinar y de estructura curricular o prácticas, aunque los requisitos concretos difieren. Odontología es el caso más amplio (8 de 10 criterios con observaciones); QFB, Fisioterapia y Nutrición concentran sus pendientes en prácticas, escenarios e infraestructura. La maestría tiene aprobado el apartado curricular general; sus pendientes son de modalidad (nuevas tecnologías, guías de estudio, plataforma y un bloque de modalidad no escolarizada aplicado a un programa mixto). No deben trasladarse a la maestría las recomendaciones sobre campos clínicos o reconstrucción curricular general.</p>' +
+      '<p>Maestría: el dictamen corresponde a la modalidad mixta (PRG-045). La modalidad escolarizada (PRG-044) ya no se ofertará y queda en liquidación, por indicación de la Vicerrectoría (11-nov-2026); su OTA vence ese mismo día. La base registra para la mixta una cuarta opinión no favorable y un reenvío a la CIFRHS en elaboración. Para las cuatro licenciaturas, la situación y las fechas de OTA provienen del tablero normativo (lámina 4).</p>' +
+      '<p>Oficios de la CIFRHS: Fisioterapia, DGCES-DG-1860-2026 y CIFRHS-0345-26 (12-jun); QFB, DGCES-DG-2084-2026 y CIFRHS-0392-26 (3-jul); Odontología, DGCES-DG-2137-2026 y CIFRHS-0402-26 (6-jul); Nutrición, DGCES-DG-2290-2026 y CIFRHS-0451-26 (22-jul); Maestría, DGCES-DG-2618-2026 y CIFRHS-0550-26 (7-ago).</p>' +
+      '<p>Productos comunes propuestos: matriz de correspondencia curricular; expediente de prácticas y escenarios; manuales de laboratorio y simulación; expediente de admisión; expediente docente; expediente de infraestructura; y evaluación y seguimiento. La maestría requiere además la descripción de la operación de la modalidad mixta. Se alinean con la acción 2 del plan (unificar indicadores comunes).</p>' +
+      '<p class="adv">Límites: el recuento de criterios con observaciones no pondera la gravedad ni equivale a causas. Sin el expediente ni la cédula de evaluación no es posible afirmar si cada valoración fue correcta, y la falta de evidencia en el oficio no implica que el elemento no exista. Los oficios no prueban una causa administrativa única ni permiten atribuir responsabilidades personales.</p>') +
+    foot(fuenteOT(), 5) + '</section>';
+}
+function dOT(){
+  var sel = st.otp;
+  document.getElementById('otl').innerHTML = ['o','p','c','n'].map(function(s){
+    return '<span><i style="background:'+OTCOL[s]+';border:1px solid rgba(43,46,49,.28)"></i>'+OTTIP[s]+'</span>';
+  }).join('');
+  var h = '<table class="otm" aria-label="Matriz de resultados declarados por criterio y programa"><thead><tr><th scope="col" class="cr">Criterio</th>' +
+    OTP.map(function(p){
+      return '<th scope="col"><button type="button" class="'+(p.k===sel?'on':'')+'" data-otp="'+p.k+'" aria-pressed="'+(p.k===sel)+'" title="'+p.n+'"><b>'+(p.k==='mae' ? 'Maestría C. Salud' : (p.k==='qfb' ? 'QFB' : p.n))+'</b><small>'+p.s+' · '+fF(p.fo).replace('-2026','')+'</small></button></th>';
+    }).join('') + '<th scope="col" class="cn">Con pendiente</th></tr></thead><tbody>';
+  OTC.forEach(function(cr, i){
+    var pend = OTP.filter(function(p){ return p.c[i][0]==='o' || p.c[i][0]==='p'; }).length;
+    h += '<tr><td class="cr">'+cr+'</td>' + OTP.map(function(p){
+      var x = p.c[i], tip = cr+' · '+p.n+': '+(x[1] || OTTIP[x[0]]);
+      return '<td class="'+x[0]+(p.k===sel?' sel':'')+'" data-tip="'+tip+'" aria-label="'+tip+'">'+OTLAB[x[0]]+(x[1] ? ' †' : '')+'</td>';
+    }).join('') + '<td class="cn">'+pend+' de 5</td></tr>';
+  });
+  h += '</tbody><tfoot><tr><td class="cr">Con observaciones</td>' + OTP.map(function(p){
+    var o = otCount(p,'o'), q = otCount(p,'p');
+    return '<td class="'+(p.k===sel?'sel':'')+'">'+o+' de 10'+(q ? '<small> + '+q+' parc.</small>' : '')+'</td>';
+  }).join('') + '<td class="cn"></td></tr></tfoot></table>';
+  h += '<p class="nota ots">† Matiz del oficio: pase el cursor sobre la celda. El dictamen de la Maestría corresponde a la modalidad mixta; la escolarizada está en liquidación.</p>';
+  document.getElementById('otb').innerHTML = h;
+
+  var P = OTP.filter(function(p){ return p.k===sel; })[0], r = prBy(P.pr), d = '<h3>' + P.n + ' · ' + P.s + ' · oficio ' + fF(P.fo) + '</h3>';
+  if(P.k==='mae'){
+    d += '<div class="otk"><b>Mixta</b><span>PRG-045 · sin fecha de OTA ni ruta en la base; cuarta no favorable, reenvío en elaboración.</span></div>';
+    d += '<div class="otk liq"><b>Escolarizada</b><span>PRG-044 · <u>En liquidación</u>: ya no se ofertará. OTA hasta ' + dotS(sem(r.ota)) + fF(r.ota) + ' (' + dTxt(r.ota) + ').</span></div>';
+  } else {
+    d += '<div class="otk"><b>OTA hasta</b><span>' + dotS(sem(r.ota)) + fF(r.ota) + ' (' + dTxt(r.ota) + ')</span></div>';
+    d += '<div class="otk"><b>Situación</b><span>' + r.sit + '</span></div>';
+  }
+  d += '<h3>Núcleo de las observaciones</h3><p>' + P.nuc + '</p>' +
+       '<h3>Aprobado</h3><p>' + P.apr + '</p>' +
+       '<h3>Prioridades sugeridas</h3><ol>' + P.pri.map(function(x){ return '<li>'+x+'</li>'; }).join('') + '</ol>';
+  document.getElementById('otd').innerHTML = d;
 }
 
 /* ---- 10 · OTA: vencidas, por vencer y ruta de renovación ---- */
@@ -1952,7 +2077,7 @@ function sPT(){
       '<div class="fc">'+eq+'<div class="rl">Equipo de la Vicerrectoría</div></div></div></div>'+
     '<div class="pk"><div><b>'+fm(TOTM.O26[1])+'</b><span>estudiantes inscritos, otoño 2026</span></div><div><b>'+PR.length+'</b><span>programas vigentes</span></div><div><b>'+uni+'</b><span>facultades y escuelas</span></div><div><b>'+N+'</b><span>académicos activos</span></div>'+
       '<div><b>'+ACR.length+' de '+(ACR.length+ACP.length)+'</b><span>proyectos acreditados</span></div><div><b>'+(cvT('ac')+cvT('tr'))+'</b><span>convenios con '+cvT('e')+' instituciones</span></div></div></div>'+
-    notas('<p>Lámina de presentación: identifica la Vicerrectoría de Ciencias de la Salud, el trienio de gestión (agosto de 2026 a agosto de 2029) con las tres etapas del plan de acción trienal, su misión y su visión, a su titular y a su equipo. Las fotografías se muestran completas, sin recorte. El total de estudiantes corresponde a personas únicas inscritas al cierre del corte de otoño 2026 (en curso) e incluye los 37 de Enfermería (Mixta), programa en liquidación, por lo que supera en esa cantidad al de la lámina 11 con el interruptor de liquidación activo. Las demás cifras de la franja inferior son las mismas de las láminas de estructura, claustro, acreditaciones y convenios, con corte al '+fF(CFG.corte)+'.</p>'+
+    notas('<p>Lámina de presentación: identifica la Vicerrectoría de Ciencias de la Salud, el trienio de gestión (agosto de 2026 a agosto de 2029) con las tres etapas del plan de acción trienal, su misión y su visión, a su titular y a su equipo. Las fotografías se muestran completas, sin recorte. El total de estudiantes corresponde a personas únicas inscritas al cierre del corte de otoño 2026 (en curso) e incluye los 37 de Enfermería (Mixta), programa en liquidación, por lo que supera en esa cantidad al de la lámina 12 con el interruptor de liquidación activo. Las demás cifras de la franja inferior son las mismas de las láminas de estructura, claustro, acreditaciones y convenios, con corte al '+fF(CFG.corte)+'.</p>'+
       '')+
     foot(fuente(), 1)+'</section>';
 }
@@ -1972,7 +2097,7 @@ function aP(){
   var acT = ACR.length + ACP.length, acV = ACR.filter(function(x){ return sem(x.v)==='r'; }).length;
   return '<section class="slide red ap" id="ap" aria-labelledby="t-ap">'+head('5 · Plan de acción · Planes y programas', true)+
    '<div class="sc"><h2 id="t-ap">Acciones · Planes y programas</h2>'+
-   '<p class="lab">Punto de partida (láminas 4 y 5)</p>'+
+   '<p class="lab">Punto de partida (láminas 4 a 6)</p>'+
    '<div class="sts">'+stt(nP,'programas de la oferta vigente en el tablero normativo')+
      stt(vent,'con OTA vencida o a menos de dos años de vencer: ya dentro de la ventana de alerta')+
      stt(ACR.length+' de '+acT,'proyectos acreditables cuentan con acreditación; '+acV+' vencida')+'</div>'+
@@ -1982,15 +2107,15 @@ function aP(){
      ac1(2,'Identificar los indicadores de los organismos acreditadores y de rediseño que son <b>comunes a todos los programas académicos</b> de la Vicerrectoría, para unificarlos y hacer eficiente la preparación de documentos.')+
    '</div></div>'+
    notas('<p>Estatus de OTA (lámina 4): '+ov+' vencidas, '+oo+' en su último año y '+oa+' entre uno y dos años; es decir, '+vent+' programas ya están dentro de la ventana de dos años que fija la acción 1. Para ellos la alerta llega tarde.</p>'+
-     '<p class="adv">Alcance del tablero: las láminas 4 y 5 cubren los 51 programas de la oferta vigente. Quedan fuera PRG-003, 045, 048 y 055, que concentran las anomalías normativas; el tablero de alertas debe cubrirlos. Los 5 postécnicos requieren OTA pero no tienen fecha capturada, y la vigencia del RVOE está como texto libre.</p>'+
+     '<p class="adv">Alcance del tablero: las láminas 4 y 6 cubren los 51 programas de la oferta vigente. Quedan fuera PRG-003, 045, 048 y 055, que concentran las anomalías normativas; el tablero de alertas debe cubrirlos. Los 5 postécnicos requieren OTA pero no tienen fecha capturada, y la vigencia del RVOE está como texto libre.</p>'+
      '<p>El plan no define a quién se envían las alertas ni qué indicadores se consideran comunes entre organismos acreditadores; ambos puntos están por resolver. Ninguna acreditación tiene documento localizado en la base.</p>')+
-   foot(fuenteAP('láminas 4 y 5'), 5) + '</section>';
+   foot(fuenteAP('láminas 4 a 6'), 5) + '</section>';
 }
 
 function aC(){
   return '<section class="slide red ap" id="ac" aria-labelledby="t-ac">'+head('9 · Plan de acción · Rubro 1 · Calidad, prestigio y desempeño docente', true)+
    '<div class="sc"><h2 id="t-ac">Acciones · Calidad, prestigio y desempeño docente</h2>'+
-   '<p class="lab">Punto de partida (láminas 7 a 9)</p>'+
+   '<p class="lab">Punto de partida (láminas 8 a 10)</p>'+
    '<div class="sts">'+stt(G_snT,'docentes en el SNII · '+pct(G_snT,ND)+' de los '+ND+' que imparten')+
      stt(DT.doc,'con doctorado registrado · '+pct(DT.doc,ND)+' de quienes imparten')+
      stt(pct(G_hc,N),'del claustro es por horas ('+G_hc+' de '+N+')')+'</div>'+
@@ -2003,13 +2128,13 @@ function aC(){
    notas('<p>La acción 3 (visitas a los salones) va al final del rubro, según lo indicado en el plan.</p>'+
      '<p>Lectura del estatus: '+G_snT+' docentes en el SNII ('+pct(G_snT,ND)+' de los '+ND+' que imparten), '+DT.doc+' con doctorado registrado y '+DT.sin+' sin formación registrada; el '+pct(G_hc,N)+' de la planta es por horas, lo que hace que el monitoreo con jefes de grupo y las visitas alcancen a la mayor parte de la plantilla.</p>'+
      '<p class="adv">Brechas: (1) el plan no fija meta de nivel académico ni de SNII, por lo que «elevar» e «incrementar» no son verificables; (2) la presentación no contiene datos de desempeño ni de asistencia docente, así que la acción 2 requiere definir fuente e indicador; (3) siguen pendientes la confirmación de 18 registros SNII cotejados solo por nombre y la cédula profesional.</p>')+
-   foot(fuenteAP('láminas 7 a 9'), 9) + '</section>';
+   foot(fuenteAP('láminas 8 a 10'), 9) + '</section>';
 }
 
 function aD(){
   return '<section class="slide red ap" id="ad" aria-labelledby="t-ad">'+head('13 · Plan de acción · Rubro 2 · Desempeño académico', true)+
    '<div class="sc"><h2 id="t-ad">Acciones · Desempeño académico</h2>'+
-   '<p class="lab">Punto de partida (láminas 11 a 14)</p>'+
+   '<p class="lab">Punto de partida (láminas 12 a 15)</p>'+
    '<div class="sts">'+stt('3.2 %','de materias reprobadas en primavera 2026; resto de la universidad, 5.0 %')+
      stt('218','bajas en otoño 2026 · 3.2 % de los inscritos iniciales')+
      stt(CGT.sen,'de '+nf(CGT.gr)+' grupos ('+(CGT.sen/CGT.gr*100).toFixed(1)+' %) con calificaciones extremas o reprobación alta')+'</div>'+
@@ -2020,19 +2145,19 @@ function aD(){
      '<div class="ac1"><span class="n">2</span><div><p>Identificar las <b>materias con mayor reprobación atribuible a dificultad propia del alumno</b>, cuando la reprobación provenga de una evaluación real, y estructurar <b>cursos remediales</b> en ellas.</p>'+
        '<span class="tg2">Rótulo neutro: «materias con mayor reprobación»</span></div></div>'+
    '</div></div>'+
-   notas('<p>Estatus: la Vicerrectoría reprueba menos que el resto de la universidad (3.2 % frente a 5.0 % en primavera 2026) y las bajas de otoño 2026 son 218. La tasa de Enfermería (5.6 %) duplica la de Medicina (2.8 %). La lámina 14 añade la distribución de calificaciones: '+CGT.sen+' de '+nf(CGT.gr)+' grupos presentan señal en al menos uno de tres criterios.</p>'+
+   notas('<p>Estatus: la Vicerrectoría reprueba menos que el resto de la universidad (3.2 % frente a 5.0 % en primavera 2026) y las bajas de otoño 2026 son 218. La tasa de Enfermería (5.6 %) duplica la de Medicina (2.8 %). La lámina 15 añade la distribución de calificaciones: '+CGT.sen+' de '+nf(CGT.gr)+' grupos presentan señal en al menos uno de tres criterios.</p>'+
      '<p><b>Hipótesis preliminar (H1), no un hallazgo confirmado.</b> La evaluación interna de Medicina tiende a la indulgencia: las calificaciones se agrupan hacia valores altos, la reprobación global es baja (2.5 % en primavera 2026) mientras el desempeño externo (ENARM) va a la baja. Bajo H1, las materias con reprobación alta serían las que evalúan con un estándar más cercano al externo, y su tasa describiría exigencia y no riesgo. La lectura alterna es que las calificaciones altas reflejan buen desempeño o selección de ingreso y que las materias de reprobación alta son más difíciles o están mal calibradas; ambas lecturas pueden coexistir, de modo que una materia puede ser rigurosa y a la vez un cuello de botella.</p>'+
      '<p>Evidencia descriptiva en Medicina (historial de asignaturas, otoño 2024, otoño 2025 y primavera 2026; escala 0 a 10, mínimo 7.0): mediana 9.0; 51 % a 54 % de las calificaciones son 9 o más y 13 % a 16 % son 10; solo 2.3 % a 3.2 % están por debajo de 7. Hay 1,400 calificaciones de exactamente 7.0 frente a 146 en 6.9 y 486 en 7.1 (el 8.0 también sobresale, por preferencia por enteros, pero el exceso en 7.0 es mayor). La deriva es leve (media de 8.78 a 8.85 y 8.84). Las cuatro materias con reprobación alta se separan del resto: media de 7.9 a 8.4 frente a 8.85. La compresión no es uniforme, y ahí se concentra la discriminación.</p>'+
-     '<p class="adv">Límites: no hay estándar externo en el archivo, así que una mediana de 9 puede indicar indulgencia, buena preparación o selección de ingreso. Odontología también tiene distribución alta con reprobación mayor, por lo que la compresión no es exclusiva de Medicina. La coincidencia temporal con la baja del ENARM no establece relación. Que las materias de tasa alta sean más exigentes no las hace más válidas. La cobertura de esa fuente es solo Medicina y Odontología y sus cifras difieren de las de la lámina 13, que usa otra base y otros periodos.</p>'+
+     '<p class="adv">Límites: no hay estándar externo en el archivo, así que una mediana de 9 puede indicar indulgencia, buena preparación o selección de ingreso. Odontología también tiene distribución alta con reprobación mayor, por lo que la compresión no es exclusiva de Medicina. La coincidencia temporal con la baja del ENARM no establece relación. Que las materias de tasa alta sean más exigentes no las hace más válidas. La cobertura de esa fuente es solo Medicina y Odontología y sus cifras difieren de las de la lámina 14, que usa otra base y otros periodos.</p>'+
      '<p class="adv">H1 pierde apoyo si (a) la calificación en las materias de distribución comprimida predice el desempeño posterior en el EGEL o el ENARM tan bien como la de las materias de tasa alta, o (b) la dispersión y la forma de la distribución son equivalentes entre ambos grupos y se explican por la composición de las cohortes. Ninguna prueba se ha realizado; el criterio debe pre-registrarse antes de calcularla. Mientras tanto se usa el rótulo neutro «materias con mayor reprobación» y no «materias de riesgo». Los nombres de asignaturas y docentes se reservan para directores y comités.</p>')+
-   foot(fuenteAP('láminas 11 a 14'), 13) + '</section>';
+   foot(fuenteAP('láminas 12 a 15'), 13) + '</section>';
 }
 
 function aV(){
   var O = L8.org, Gv = L8.gob, vet = byId('vet');
   return '<section class="slide red ap" id="av" aria-labelledby="t-av">'+head('18 · Plan de acción · Rubro 3 · Vinculación', true)+
    '<div class="sc"><h2 id="t-av">Acciones · Vinculación</h2>'+
-   '<p class="lab">Punto de partida (láminas 16 y 17)</p>'+
+   '<p class="lab">Punto de partida (láminas 17 y 18)</p>'+
    '<div class="sts">'+stt(O.a,'convenios activos con organizaciones sociales y empresas')+
      stt(Gv.a,'convenios activos con gobierno')+
      stt(tot(vet),'académicos en Veterinaria y Zootecnia, unidad de salud animal')+'</div>'+
@@ -2043,10 +2168,10 @@ function aV(){
    '<p class="lab">Para dar atención a</p>'+
    '<div class="dst big"><div>Comunidad del Barrio de Santiago</div><div>Zonas aledañas</div><div>Comunidades</div><div>Empresas</div></div>'+
    '</div>'+
-   notas('<p>Estatus: la red de instituciones existente incluye '+O.a+' convenios activos con organizaciones sociales y empresas y '+Gv.a+' con gobierno; los 15 convenios de Servicios de Salud del Estado de Puebla, aún en trámite, condicionan la articulación con el sector público en campos clínicos (lámina 17).</p>'+
+   notas('<p>Estatus: la red de instituciones existente incluye '+O.a+' convenios activos con organizaciones sociales y empresas y '+Gv.a+' con gobierno; los 15 convenios de Servicios de Salud del Estado de Puebla, aún en trámite, condicionan la articulación con el sector público en campos clínicos (lámina 18).</p>'+
      '<p class="adv">Brecha: las actividades registradas en los convenios (ciclos clínicos, servicio social, prácticas, estancias) no incluyen jornadas, así que no existe línea base para «continuidad» ni «incrementar». Conviene registrar cada jornada con fecha, sede, unidades participantes y personas atendidas.</p>'+
      '<p>Falta definir si las jornadas se apoyarán en convenios específicos con las comunidades y empresas destinatarias.</p>')+
-   foot(fuenteAP('láminas 16 y 17'), 18) + '</section>';
+   foot(fuenteAP('láminas 17 y 18'), 18) + '</section>';
 }
 
 function aT(){
@@ -2074,6 +2199,7 @@ var SL = [
   {id:'og',titulo:'Organigrama actual de la Vicerrectoría'},
   {id:'s1',titulo:'Facultades y escuelas'},
   {id:'s9',titulo:'Normativo: línea temporal de vigencias de OTA y RVOE'},
+  {id:'ot',titulo:'Normativo: OTA no favorables y matriz de criterios'},
   {id:'s12',titulo:'Acreditaciones: línea temporal'},
   {id:'ap',titulo:'Plan de acción: planes y programas'},
   {id:'s2',titulo:'Tipo de contratación y proporción estudiantes/TC'},
@@ -2090,7 +2216,7 @@ var SL = [
   {id:'av',titulo:'Plan de acción: vinculación'},
   {id:'at',titulo:'Plan de acción trienal'}
 ];
-stage.innerHTML = sPT()+sOG()+s1()+s9()+s12()+aP()+s2()+s3()+s4()+aC()+sM()+sDS()+sR()+sCG()+aD()+s5()+s6()+aV()+aT();
+stage.innerHTML = sPT()+sOG()+s1()+s9()+sOT()+s12()+aP()+s2()+s3()+s4()+aC()+sM()+sDS()+sR()+sCG()+aD()+s5()+s6()+aV()+aT();
 /* Numeración automática: cabecera y pie siguen el orden real de las láminas */
 Array.prototype.forEach.call(stage.querySelectorAll('section.slide'), function(sec, i){
   var kk = sec.querySelector('.kick'); if(kk) kk.textContent = kk.textContent.replace(/^\d+ · /, (i+1)+' · ');
@@ -2216,7 +2342,7 @@ function syncCtl(){
   Array.prototype.forEach.call(document.querySelectorAll('[data-rm]'), function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-rm')===st.rm ? 'true':'false'); });
   Array.prototype.forEach.call(document.querySelectorAll('[data-xliq]'), function(b){ b.setAttribute('aria-pressed', st.xliq ? 'true':'false'); });
 }
-function render(){ if(!st.sel) st.nv = null; d2(); d3(); d4(); dM(); dDS(); dR(); d5(); d6(); d9(); d12(); dCG(); syncCtl(); syncSel(); }
+function render(){ if(!st.sel) st.nv = null; d2(); d3(); d4(); dM(); dDS(); dR(); d5(); d6(); d9(); dOT(); d12(); dCG(); syncCtl(); syncSel(); }
 
 function refocus(attr, val){
   var a = document.querySelector('.slide.on ['+attr+'="'+val+'"]');
@@ -2257,6 +2383,7 @@ document.addEventListener('click', function(e){
     }
   }
   if((el = t.closest('[data-pais]'))){ var pc = el.getAttribute('data-pais'); st.pais = (st.pais===pc) ? null : pc; render(); refocus('data-pais', pc); return; }
+  if((el = t.closest('[data-otp]'))){ var ok = el.getAttribute('data-otp'); st.otp = ok; render(); refocus('data-otp', ok); return; }
   if((el = t.closest('[data-dsn]'))){ var dk = el.getAttribute('data-dsn'); st.dsn = dk; render(); refocus('data-dsn', dk); return; }
   if((el = t.closest('[data-cvx]'))){ var xk = el.getAttribute('data-cvx'); st.cvx = (st.cvx===xk) ? null : xk; render(); refocus('data-cvx', xk); return; }
   if((el = t.closest('[data-nzi]'))){ st.ind = el.getAttribute('data-nzi'); render(); refocus('data-nzi', st.ind); return; }
